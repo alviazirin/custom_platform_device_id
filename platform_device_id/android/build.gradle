@@ -25,7 +25,20 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 34
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    if (!project.hasProperty("namespace")) {
+        namespace 'com.di1shuai.platform_device_id'
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
